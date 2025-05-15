@@ -23,7 +23,12 @@ public class NPCSpawner : MonoBehaviour
         currentCustomer = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
 
         NPCMovement movement = currentCustomer.GetComponent<NPCMovement>();
-        movement.MoveTo(orderPoint.position);
+        CustomerOrder order = currentCustomer.GetComponent<CustomerOrder>();
+
+        movement.MoveTo(orderPoint.position, () =>
+        {
+            order?.RequestOrder();
+        });
     }
 
     public void SendCustomerToExit()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,12 +8,12 @@ public class NPCMovement : MonoBehaviour
 
     private Coroutine moveCoroutine;
 
-    public void MoveTo(Vector3 destination)
+    public void MoveTo(Vector3 destination, Action onArrive = null)
     {
         if (moveCoroutine != null)
             StopCoroutine(moveCoroutine);
 
-        moveCoroutine = StartCoroutine(MoveToPosition(destination, false));
+        moveCoroutine = StartCoroutine(MoveToPosition(destination, false, onArrive));
     }
 
     public void MoveToAndDestroy(Vector3 destination)
@@ -20,10 +21,10 @@ public class NPCMovement : MonoBehaviour
         if (moveCoroutine != null)
             StopCoroutine(moveCoroutine);
 
-        moveCoroutine = StartCoroutine(MoveToPosition(destination, true));
+        moveCoroutine = StartCoroutine(MoveToPosition(destination, true, null));
     }
 
-    private IEnumerator MoveToPosition(Vector3 targetPosition, bool destroyOnArrival)
+    private IEnumerator MoveToPosition(Vector3 targetPosition, bool destroyOnArrival, Action onArrive)
     {
         while (Vector3.Distance(transform.position, targetPosition) > 0.05f)
         {
@@ -32,6 +33,8 @@ public class NPCMovement : MonoBehaviour
         }
 
         transform.position = targetPosition;
+
+        onArrive?.Invoke();
 
         if (destroyOnArrival)
             Destroy(gameObject);
