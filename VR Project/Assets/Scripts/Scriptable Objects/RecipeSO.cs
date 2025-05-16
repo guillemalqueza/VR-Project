@@ -6,4 +6,10 @@ using UnityEngine;
 public class RecipeSO : ScriptableObject
 {
     public List<OrderItemSO> itemSOList;
+
+    private void OnValidate()
+    {
+        if (itemSOList.Count > 3)
+            itemSOList = itemSOList.GetRange(0, 3);
+    }
 }
