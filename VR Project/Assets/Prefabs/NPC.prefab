@@ -498,3 +498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6a976cf0f9626479fe1402c7d8b54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orderCanvas: {fileID: 9175594965881693546}
+  orderManagerUI: {fileID: 3501263433706023121}
+  availableRecipes:
+  - {fileID: 11400000, guid: 35145ea462f65d541a0c9fcd7fbd712b, type: 2}
+  - {fileID: 11400000, guid: 6a3fb6480473fd84ea6503470e30368a, type: 2}
