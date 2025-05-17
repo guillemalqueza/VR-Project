@@ -239,3 +239,4 @@ MonoBehaviour:
   liquidVisual: {fileID: 8729420186000406796}
   minFillAmount: 0
   maxFillAmount: 0.065
+  orderItemSO: {fileID: 11400000, guid: cd23d4c782ce73349827e12d2f6bee12, type: 2}

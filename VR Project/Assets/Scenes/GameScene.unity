@@ -154,19 +154,19 @@ MonoBehaviour:
   dispensers:
   - cupSpawnTransform: {fileID: 1866352071}
     fillTime: 3
-    cupPrefab: {fileID: 9170688763677819794, guid: 02fa8ab9dbc44f242b985ccc733e87a8, type: 3}
+    orderItemSO: {fileID: 11400000, guid: cd23d4c782ce73349827e12d2f6bee12, type: 2}
     currentCup: {fileID: 0}
     isFilling: 0
     fillAmount: 0
   - cupSpawnTransform: {fileID: 1075895215}
     fillTime: 3
-    cupPrefab: {fileID: 9170688763677819794, guid: 02fa8ab9dbc44f242b985ccc733e87a8, type: 3}
+    orderItemSO: {fileID: 11400000, guid: cd23d4c782ce73349827e12d2f6bee12, type: 2}
     currentCup: {fileID: 0}
     isFilling: 0
     fillAmount: 0
   - cupSpawnTransform: {fileID: 1830570193}
     fillTime: 3
-    cupPrefab: {fileID: 9170688763677819794, guid: 02fa8ab9dbc44f242b985ccc733e87a8, type: 3}
+    orderItemSO: {fileID: 11400000, guid: cd23d4c782ce73349827e12d2f6bee12, type: 2}
     currentCup: {fileID: 0}
     isFilling: 0
     fillAmount: 0

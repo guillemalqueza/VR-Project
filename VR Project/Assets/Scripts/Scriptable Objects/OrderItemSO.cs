@@ -5,4 +5,7 @@ public class OrderItemSO : ScriptableObject
 {
     [Tooltip("Item Image")]
     public Sprite itemImage;
+
+    [Tooltip("Item Prefab")]
+    public GameObject itemPrefab;
 }

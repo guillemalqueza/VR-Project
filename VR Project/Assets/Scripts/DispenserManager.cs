@@ -8,7 +8,7 @@ public class DispenserManager : MonoBehaviour
     {
         [SerializeField] public Transform cupSpawnTransform;
         [SerializeField] public float fillTime = 3f;
-        [SerializeField] public GameObject cupPrefab;
+        [SerializeField] public OrderItemSO orderItemSO;
 
         [HideInInspector] public GameObject currentCup;
         [HideInInspector] public bool isFilling = false;
@@ -75,7 +75,7 @@ public class DispenserManager : MonoBehaviour
 
     private void SpawnCup(Dispenser dispenser)
     {
-        dispenser.currentCup = Instantiate(dispenser.cupPrefab, dispenser.cupSpawnTransform.position, Quaternion.identity);
+        dispenser.currentCup = Instantiate(dispenser.orderItemSO.itemPrefab, dispenser.cupSpawnTransform.position, Quaternion.identity);
         dispenser.isFilling = false;
         dispenser.fillAmount = 0f;
     }
