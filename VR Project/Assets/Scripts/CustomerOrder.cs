@@ -8,9 +8,9 @@ public class CustomerOrder : MonoBehaviour
     [SerializeField] private OrderManagerUI orderManagerUI;
     
     [Header("Recipes")]
-    [SerializeField] private List<RecipeSO> availableRecipes;
+    [SerializeField] private List<OrderRecipeSO> availableRecipes;
 
-    private RecipeSO currentRecipe;
+    private OrderRecipeSO currentRecipe;
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class CustomerOrder : MonoBehaviour
         orderCanvas.enabled = false;
     }
 
-    public RecipeSO GetCurrentRecipe()
+    public OrderRecipeSO GetCurrentRecipe()
     {
         return currentRecipe;
     }

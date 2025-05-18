@@ -14,7 +14,7 @@ public class OrderManagerUI : MonoBehaviour
         iconTemplate.gameObject.SetActive(false);
     }
 
-    public void SetRecipeSO(RecipeSO recipeSO)
+    public void SetRecipeSO(OrderRecipeSO recipeSO)
     {
         foreach (Transform child in iconContainer)
         {
