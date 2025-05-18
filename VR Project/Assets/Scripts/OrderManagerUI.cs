@@ -8,10 +8,13 @@ public class OrderManagerUI : MonoBehaviour
 {
     [SerializeField] private Transform iconContainer;
     [SerializeField] private Transform iconTemplate;
+    [SerializeField] private Transform burgerContainer;
+    [SerializeField] private Transform burgerIconTemplate;
 
     private void Awake()
     {
         iconTemplate.gameObject.SetActive(false);
+        burgerIconTemplate.gameObject.SetActive(false);
     }
 
     public void SetRecipeSO(OrderRecipeSO recipeSO)
@@ -22,11 +25,27 @@ public class OrderManagerUI : MonoBehaviour
             Destroy(child.gameObject);
         }
 
+        foreach (Transform child in burgerContainer)
+        {
+            if (child == burgerIconTemplate) continue;
+            Destroy(child.gameObject);
+        }
+
         foreach (OrderItemSO itemSO in recipeSO.itemSOList)
         {
             Transform iconTransform = Instantiate(iconTemplate, iconContainer);
             iconTransform.gameObject.SetActive(true);
             iconTransform.GetComponent<Image>().sprite = itemSO.itemImage;
+        }
+
+        if (recipeSO.burgerRecipeSO != null)
+        {
+            foreach (OrderItemSO itemSO in recipeSO.burgerRecipeSO.itemSOList)
+            {
+                Transform iconTransform = Instantiate(burgerIconTemplate, burgerContainer);
+                iconTransform.gameObject.SetActive(true);
+                iconTransform.GetComponent<Image>().sprite = itemSO.itemImage;
+            }
         }
     }
 }
