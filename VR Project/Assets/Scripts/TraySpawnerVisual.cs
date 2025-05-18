@@ -20,8 +20,6 @@ public class TraySpawnerVisual : MonoBehaviour
     {
         traySpawner.OnTraySpawned += TraySpawner_OnTraySpawned;
         traySpawner.OnTrayRemoved += TraySpawner_OnTrayRemoved;
-
-        traySpawner.SpawnTray();
     }
 
     private void TraySpawner_OnTrayRemoved(object sender, System.EventArgs e)
