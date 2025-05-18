@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfd70bde9e57b3f4ba0811b86a0d6a57, type: 3}
-  m_Name: Recipe1
+  m_Script: {fileID: 11500000, guid: 742bf5489752cc84eb6ae0a140740c13, type: 3}
+  m_Name: Cola
   m_EditorClassIdentifier: 
-  itemSOList:
-  - {fileID: 11400000, guid: cd23d4c782ce73349827e12d2f6bee12, type: 2}
-  burgerRecipeSO: {fileID: 11400000, guid: 06be170d3c4e0ac479227cf8ce8b24b9, type: 2}
+  itemImage: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+  itemPrefab: {fileID: 9170688763677819794, guid: 02fa8ab9dbc44f242b985ccc733e87a8, type: 3}

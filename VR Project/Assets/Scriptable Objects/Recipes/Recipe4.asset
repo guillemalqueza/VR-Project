@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfd70bde9e57b3f4ba0811b86a0d6a57, type: 3}
-  m_Name: Recipe1
+  m_Name: Recipe4
   m_EditorClassIdentifier: 
   itemSOList:
   - {fileID: 11400000, guid: cd23d4c782ce73349827e12d2f6bee12, type: 2}
-  burgerRecipeSO: {fileID: 11400000, guid: 06be170d3c4e0ac479227cf8ce8b24b9, type: 2}
+  burgerRecipeSO: {fileID: 11400000, guid: 5fdc28ca032e05542aeb5bb898e3d52d, type: 2}

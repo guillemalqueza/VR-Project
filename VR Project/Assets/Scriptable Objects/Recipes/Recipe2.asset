@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Recipe2
   m_EditorClassIdentifier: 
   itemSOList:
-  - {fileID: 11400000, guid: b8dd6bb40e06252448430e05db58c620, type: 2}
-  - {fileID: 11400000, guid: cd23d4c782ce73349827e12d2f6bee12, type: 2}
+  - {fileID: 11400000, guid: b1ded9c285409c244b4c4a46c257b33a, type: 2}
+  burgerRecipeSO: {fileID: 11400000, guid: 06be170d3c4e0ac479227cf8ce8b24b9, type: 2}
