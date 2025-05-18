@@ -125,7 +125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4257412417454173071, guid: d5615d616019430d9c2e8727e71c97fb, type: 3}
       propertyPath: m_Name
-      value: BurguerInteractable Variant
+      value: BurguerInteractable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
