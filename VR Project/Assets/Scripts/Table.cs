@@ -7,6 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 public class Table : MonoBehaviour
 {
     [SerializeField] private Transform[] trayPoints;
+    [SerializeField] private TraySpawner traySpawner;
     
     private List<GameObject> currentTrays = new List<GameObject>();
     
@@ -60,5 +61,7 @@ public class Table : MonoBehaviour
         currentTrays[index].transform.rotation = trayPoints[index].rotation;
         
         Debug.Log($"Placed tray at index {index}");
+
+        traySpawner.RemoveTray();
     }
 }

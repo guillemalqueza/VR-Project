@@ -32,4 +32,10 @@ public class TraySpawner : MonoBehaviour
             OnTraySpawned?.Invoke(this, EventArgs.Empty);
         }
     }
+
+    public void RemoveTray()
+    {
+        trayCount--;
+        OnTrayRemoved.Invoke(this, EventArgs.Empty);
+    }
 }
