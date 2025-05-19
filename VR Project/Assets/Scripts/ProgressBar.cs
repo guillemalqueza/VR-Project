@@ -5,6 +5,7 @@ public class ProgressBar: MonoBehaviour
 {
     [SerializeField] private GameObject hasProgressGameObject;
     [SerializeField] private Image barImage;
+    [SerializeField] private int positionIndex;
 
     private IHasProgress hasProgress;
 
@@ -21,12 +22,15 @@ public class ProgressBar: MonoBehaviour
 
     private void HasProgress_OnProgressChanged(object sender, IHasProgress.OnProgressChangedEventArgs e)
     {
-        barImage.fillAmount = e.progress;
+        if (e.positionIndex == positionIndex)
+        {
+            barImage.fillAmount = e.progress;
 
-        if (e.progress == 0f || e.progress == 1f)
-            HideBar();
-        else
-            ShowBar();
+            if (e.progress == 0f || e.progress == 1f)
+                HideBar();
+            else
+                ShowBar();
+        }
     }
 
     private void ShowBar()

@@ -51,7 +51,10 @@ public class Kitchen : MonoBehaviour, IHasProgress
                 
                 fryingTimers[i] += Time.deltaTime;
                 float fryingProgress = fryingTimers[i] / fryingTimerMax;
-                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs { progress = fryingProgress });
+                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs { 
+                    progress = fryingProgress,
+                    positionIndex = i 
+                });
                 
                 if (fryingTimers[i] >= fryingTimerMax)
                 {
@@ -66,7 +69,10 @@ public class Kitchen : MonoBehaviour, IHasProgress
             {
                 burningTimers[i] += Time.deltaTime;
                 float burningProgress = burningTimers[i] / burningTimerMax;
-                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs { progress = burningProgress });
+                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs { 
+                    progress = burningProgress,
+                    positionIndex = i 
+                });
                 
                 if (burningTimers[i] >= burningTimerMax)
                 {
@@ -86,26 +92,38 @@ public class Kitchen : MonoBehaviour, IHasProgress
         Vector3 currentPosition = currentFoodItems[index].transform.position;
         Quaternion currentRotation = currentFoodItems[index].transform.rotation;
         
+        // Remove any existing joints first
+        FixedJoint[] existingJoints = currentFoodItems[index].GetComponents<FixedJoint>();
+        foreach (FixedJoint existingJoint in existingJoints)
+        {
+            Destroy(existingJoint);
+        }
+        
         Rigidbody foodRb = currentFoodItems[index].GetComponent<Rigidbody>();
-        if (foodRb != null) foodRb.isKinematic = false;
+        if (foodRb != null) 
+        {
+            foodRb.isKinematic = false;
+            foodRb.constraints = RigidbodyConstraints.None;
+        }
         
         var grabInteractable = currentFoodItems[index].GetComponent<XRGrabInteractable>();
         if (grabInteractable != null)
         {
             grabInteractable.enabled = true;
             grabInteractable.throwOnDetach = true;
+            grabInteractable.trackPosition = true;
+            grabInteractable.trackRotation = true;
         }
         
-        if (!currentFoodItems[index].TryGetComponent<FixedJoint>(out var joint))
-        {
-            joint = currentFoodItems[index].AddComponent<FixedJoint>();
-            joint.connectedBody = GetComponent<Rigidbody>();
-            joint.breakForce = 2000f;
-            joint.breakTorque = 2000f;
-        }
+        FixedJoint joint = currentFoodItems[index].AddComponent<FixedJoint>();
+        joint.connectedBody = GetComponent<Rigidbody>();
+        joint.breakForce = 100f; 
+        joint.breakTorque = 100f; 
         
         currentFoodItems[index].transform.position = currentPosition;
         currentFoodItems[index].transform.rotation = currentRotation;
+        
+        Debug.Log($"Food at position {index} is now interactable. XRGrabInteractable enabled: {grabInteractable.enabled}");
     }
     
     private void OnCollisionEnter(Collision collision)
@@ -161,6 +179,12 @@ public class Kitchen : MonoBehaviour, IHasProgress
                 if (foodStates[i] != State.Burned) allBurned = false;
                 if (foodStates[i] == State.Fried) hasFried = true;
                 if (foodStates[i] == State.Frying) hasFrying = true;
+                
+                FoodItem foodItem = currentFoodItems[i]?.GetComponent<FoodItem>();
+                if (foodItem != null)
+                {
+                    foodItem.ChangeState(foodStates[i]);
+                }
             }
         }
         
@@ -173,17 +197,7 @@ public class Kitchen : MonoBehaviour, IHasProgress
         }
         
         currentState = newState;
-        for (int i = 0; i < topPoints.Length; i++)
-        {
-            if (currentFoodItems[i] != null)
-            {
-                FoodItem foodItem = currentFoodItems[i]?.GetComponent<FoodItem>();
-                if (foodItem != null)
-                {
-                    foodItem.ChangeState(currentState);
-                }
-            }
-        }
+        
         OnStateChanged?.Invoke(this, new OnStateChangedEventArgs { currentState = currentState });
     }
     
@@ -229,7 +243,8 @@ public class Kitchen : MonoBehaviour, IHasProgress
         {
             if (currentFoodItems[i] == selectedObject)
             {
-                if (CanGrabFoodItem(i)) RemoveFoodItem(i);
+                RemoveFoodItem(i);
+                Debug.Log($"Food item at position {i} was grabbed and removed from kitchen");
                 break;
             }
         }
@@ -243,10 +258,13 @@ public class Kitchen : MonoBehaviour, IHasProgress
             fryingTimers[i] = 0f;
             burningTimers[i] = 0f;
             foodStates[i] = State.Idle;
+            OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs { 
+                progress = 0f,
+                positionIndex = i 
+            });
         }
         
         currentState = State.Idle;
-        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs { progress = 0f });
     }
     
     public bool CanGrabFoodItem(int index)

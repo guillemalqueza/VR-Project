@@ -7,5 +7,6 @@ public interface IHasProgress
     public class OnProgressChangedEventArgs : EventArgs
     {
         public float progress;
+        public int positionIndex;
     }
 }

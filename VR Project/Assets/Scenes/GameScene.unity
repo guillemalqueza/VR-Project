@@ -780,6 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b23d97336f91034d900773f678515f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateGameObjects: []
 --- !u!1001 &586824177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2309,6 +2310,10 @@ PrefabInstance:
       value: ProgressBarUI
       objectReference: {fileID: 0}
     - target: {fileID: 3404682119325723171, guid: c26ce71a029fc3644ac306d8136dc12d, type: 3}
+      propertyPath: positionIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3404682119325723171, guid: c26ce71a029fc3644ac306d8136dc12d, type: 3}
       propertyPath: hasProgressGameObject
       value: 
       objectReference: {fileID: 1984128199}
@@ -2663,6 +2668,10 @@ PrefabInstance:
     - target: {fileID: 3383770658522530629, guid: c26ce71a029fc3644ac306d8136dc12d, type: 3}
       propertyPath: m_Name
       value: ProgressBarUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3404682119325723171, guid: c26ce71a029fc3644ac306d8136dc12d, type: 3}
+      propertyPath: positionIndex
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3404682119325723171, guid: c26ce71a029fc3644ac306d8136dc12d, type: 3}
       propertyPath: hasProgressGameObject
