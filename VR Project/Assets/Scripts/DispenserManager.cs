@@ -20,7 +20,6 @@ public class DispenserManager : MonoBehaviour
     
     [Header("Cup Settings")]
     [SerializeField] private float respawnDelay = 2f;
-    [SerializeField] private float pickupDistance = 1.5f;
 
     void Start()
     {

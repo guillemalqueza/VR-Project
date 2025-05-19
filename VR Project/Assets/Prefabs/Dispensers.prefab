@@ -412,20 +412,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dispensers:
   - cupSpawnTransform: {fileID: 6788236406409907889}
-    fillTime: 3
-    orderItemSO: {fileID: 11400000, guid: cd23d4c782ce73349827e12d2f6bee12, type: 2}
+    fillTime: 6
+    orderItemSO: {fileID: 11400000, guid: b1ded9c285409c244b4c4a46c257b33a, type: 2}
     currentCup: {fileID: 0}
     isFilling: 0
     fillAmount: 0
   - cupSpawnTransform: {fileID: 6871423315655750661}
-    fillTime: 3
+    fillTime: 6
     orderItemSO: {fileID: 11400000, guid: cd23d4c782ce73349827e12d2f6bee12, type: 2}
     currentCup: {fileID: 0}
     isFilling: 0
     fillAmount: 0
   - cupSpawnTransform: {fileID: 7799080122995828946}
-    fillTime: 3
-    orderItemSO: {fileID: 11400000, guid: cd23d4c782ce73349827e12d2f6bee12, type: 2}
+    fillTime: 6
+    orderItemSO: {fileID: 11400000, guid: b8d62b56ba89b874db8565004b2cd8e2, type: 2}
     currentCup: {fileID: 0}
     isFilling: 0
     fillAmount: 0

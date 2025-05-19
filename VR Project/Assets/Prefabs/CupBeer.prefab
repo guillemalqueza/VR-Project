@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ffc181d9799dcd24c8f02fae041d701e, type: 2}
+  - {fileID: 2100000, guid: cd55a80217785e74593b7cd584cf36bf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 3624229143593607648}
   - component: {fileID: 7680820685664875686}
   m_Layer: 0
-  m_Name: Cup
+  m_Name: CupBeer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
