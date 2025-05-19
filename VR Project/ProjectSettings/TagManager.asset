@@ -8,6 +8,10 @@ TagManager:
   - Burger
   - Tray
   - Potato
+  - Bread
+  - Lettuce
+  - Onion
+  - Tomato
   layers:
   - Default
   - TransparentFX

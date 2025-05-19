@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cebolla
       objectReference: {fileID: 0}
+    - target: {fileID: 3503456336936341637, guid: 4135f9d5712cc324e99a912d09714a8b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 6438808922856250034, guid: 4135f9d5712cc324e99a912d09714a8b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -184,6 +188,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomate
       objectReference: {fileID: 0}
+    - target: {fileID: 3853029354886037734, guid: de9cba40a50c1cc44903aa21ff63ff22, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7614567877249407562, guid: de9cba40a50c1cc44903aa21ff63ff22, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -250,6 +258,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pan
       objectReference: {fileID: 0}
+    - target: {fileID: 1173565570500249816, guid: 865fae0b2e0035b4baa0881564e7db2f, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3624701573372349241, guid: 865fae0b2e0035b4baa0881564e7db2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -311,6 +323,10 @@ PrefabInstance:
     - target: {fileID: 2530709839025111020, guid: 391f1e28a2be8bf48952aebf128429db, type: 3}
       propertyPath: m_Name
       value: Lechuga
+      objectReference: {fileID: 0}
+    - target: {fileID: 2530709839025111020, guid: 391f1e28a2be8bf48952aebf128429db, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6625181642994763187, guid: 391f1e28a2be8bf48952aebf128429db, type: 3}
       propertyPath: m_LocalPosition.x
