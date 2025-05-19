@@ -49,12 +49,28 @@ public class FoodItem : MonoBehaviour
         switch (state)
         {
             case Kitchen.State.Fried:
-                stateGameObjects[0].SetActive(false);
+                foreach (Renderer renderer in stateGameObjects[0].GetComponentsInChildren<Renderer>())
+                {
+                    renderer.enabled = false;
+                }
+                if (stateGameObjects[0].GetComponent<Collider>() != null && stateGameObjects[0] == grabInteractable.GetComponent<Collider>().gameObject)
+                {
+                    stateGameObjects[0].GetComponent<Collider>().enabled = true;
+                }
+                
                 stateGameObjects[1].SetActive(true);
                 break;
 
             case Kitchen.State.Burned:
-                stateGameObjects[1].SetActive(false);
+                foreach (Renderer renderer in stateGameObjects[1].GetComponentsInChildren<Renderer>())
+                {
+                    renderer.enabled = false;
+                }
+                if (stateGameObjects[1].GetComponent<Collider>() != null && stateGameObjects[1] == grabInteractable.GetComponent<Collider>().gameObject)
+                {
+                    stateGameObjects[1].GetComponent<Collider>().enabled = true;
+                }
+                
                 stateGameObjects[2].SetActive(true);
                 break;
         }
