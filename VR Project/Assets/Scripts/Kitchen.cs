@@ -173,6 +173,17 @@ public class Kitchen : MonoBehaviour, IHasProgress
         }
         
         currentState = newState;
+        for (int i = 0; i < topPoints.Length; i++)
+        {
+            if (currentFoodItems[i] != null)
+            {
+                FoodItem foodItem = currentFoodItems[i]?.GetComponent<FoodItem>();
+                if (foodItem != null)
+                {
+                    foodItem.ChangeState(currentState);
+                }
+            }
+        }
         OnStateChanged?.Invoke(this, new OnStateChangedEventArgs { currentState = currentState });
     }
     
