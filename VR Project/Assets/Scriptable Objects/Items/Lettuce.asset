@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Lettuce
   m_EditorClassIdentifier: 
   itemImage: {fileID: 21300000, guid: e73c7fbc583e1ee468337452a7913456, type: 3}
-  itemPrefab: {fileID: 0}
+  itemPrefab: {fileID: 2530709839025111020, guid: 391f1e28a2be8bf48952aebf128429db, type: 3}

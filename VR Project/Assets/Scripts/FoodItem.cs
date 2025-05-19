@@ -46,32 +46,53 @@ public class FoodItem : MonoBehaviour
     
     public void ChangeState(Kitchen.State state)
     {
+        if (stateGameObjects == null || stateGameObjects.Length < 3)
+        {
+            return;
+        }
+        
         switch (state)
         {
             case Kitchen.State.Fried:
-                foreach (Renderer renderer in stateGameObjects[0].GetComponentsInChildren<Renderer>())
+                if (stateGameObjects[0] != null)
                 {
-                    renderer.enabled = false;
-                }
-                if (stateGameObjects[0].GetComponent<Collider>() != null && stateGameObjects[0] == grabInteractable.GetComponent<Collider>().gameObject)
-                {
-                    stateGameObjects[0].GetComponent<Collider>().enabled = true;
+                    foreach (Renderer renderer in stateGameObjects[0].GetComponentsInChildren<Renderer>())
+                    {
+                        renderer.enabled = false;
+                    }
+                    
+                    if (grabInteractable != null && stateGameObjects[0].GetComponent<Collider>() != null && 
+                        stateGameObjects[0] == grabInteractable.GetComponent<Collider>()?.gameObject)
+                    {
+                        stateGameObjects[0].GetComponent<Collider>().enabled = true;
+                    }
                 }
                 
-                stateGameObjects[1].SetActive(true);
+                if (stateGameObjects[1] != null)
+                {
+                    stateGameObjects[1].SetActive(true);
+                }
                 break;
 
             case Kitchen.State.Burned:
-                foreach (Renderer renderer in stateGameObjects[1].GetComponentsInChildren<Renderer>())
+                if (stateGameObjects[1] != null)
                 {
-                    renderer.enabled = false;
-                }
-                if (stateGameObjects[1].GetComponent<Collider>() != null && stateGameObjects[1] == grabInteractable.GetComponent<Collider>().gameObject)
-                {
-                    stateGameObjects[1].GetComponent<Collider>().enabled = true;
+                    foreach (Renderer renderer in stateGameObjects[1].GetComponentsInChildren<Renderer>())
+                    {
+                        renderer.enabled = false;
+                    }
+                    
+                    if (grabInteractable != null && stateGameObjects[1].GetComponent<Collider>() != null && 
+                        stateGameObjects[1] == grabInteractable.GetComponent<Collider>()?.gameObject)
+                    {
+                        stateGameObjects[1].GetComponent<Collider>().enabled = true;
+                    }
                 }
                 
-                stateGameObjects[2].SetActive(true);
+                if (stateGameObjects[2] != null)
+                {
+                    stateGameObjects[2].SetActive(true);
+                }
                 break;
         }
     }
