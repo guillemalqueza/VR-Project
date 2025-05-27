@@ -174,6 +174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: vrburguer
       objectReference: {fileID: 0}
+    - target: {fileID: 4330620613505388920, guid: a7deb11d2ba872f42809a028d9660a56, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1680,6 +1684,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 329504619135707386, guid: 1b248dd5afef72b40b58501f79b73834, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.044
+      objectReference: {fileID: 0}
+    - target: {fileID: 329504619135707386, guid: 1b248dd5afef72b40b58501f79b73834, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.071
+      objectReference: {fileID: 0}
+    - target: {fileID: 2091624868001488880, guid: 1b248dd5afef72b40b58501f79b73834, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 2091624868001488880, guid: 1b248dd5afef72b40b58501f79b73834, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2269477889459487974, guid: 1b248dd5afef72b40b58501f79b73834, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.135
+      objectReference: {fileID: 0}
+    - target: {fileID: 2269477889459487974, guid: 1b248dd5afef72b40b58501f79b73834, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.012
+      objectReference: {fileID: 0}
     - target: {fileID: 4781108436166356617, guid: 1b248dd5afef72b40b58501f79b73834, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1719,6 +1747,14 @@ PrefabInstance:
     - target: {fileID: 4781108436166356617, guid: 1b248dd5afef72b40b58501f79b73834, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840360604442559042, guid: 1b248dd5afef72b40b58501f79b73834, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840360604442559042, guid: 1b248dd5afef72b40b58501f79b73834, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.223
       objectReference: {fileID: 0}
     - target: {fileID: 7545355893018366119, guid: 1b248dd5afef72b40b58501f79b73834, type: 3}
       propertyPath: m_Name
