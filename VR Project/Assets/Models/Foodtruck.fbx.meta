@@ -3,22 +3,7 @@ guid: 876ab51f3fdd6024bbc6e7268215848f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Floor_MAT
-    second: {fileID: 2100000, guid: e0b365c72bdb39a40a319467ca8fd6f0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Metal_MAT
-    second: {fileID: 2100000, guid: 95897d82f04d0784fb2c8701761bb33d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wall_MAT
-    second: {fileID: 2100000, guid: 9eb4154a87b454c47a891b67391ce680, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
