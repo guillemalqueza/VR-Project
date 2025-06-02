@@ -3,7 +3,9 @@ guid: 73cb8bf9342a36249b4297506ed656ac
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cookingParticlePrefab: {fileID: 7298047605368666094, guid: c244f8048889a3948b516b2fb94654f3, type: 3}
+  - burnedParticlePrefab: {fileID: 2071806097033493185, guid: 085e2fb1c27e08f488aad5223e9467dc, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

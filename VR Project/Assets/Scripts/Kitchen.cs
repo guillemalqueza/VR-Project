@@ -14,6 +14,9 @@ public class Kitchen : MonoBehaviour, IHasProgress
     
     [SerializeField] private Transform[] topPoints;
     [SerializeField] private bool isStove;
+
+    [SerializeField] private GameObject[] cookingParticleGameObject;
+    [SerializeField] private GameObject[] burnedParticleGameObject; 
     
     private List<GameObject> currentFoodItems = new List<GameObject>();
     private List<float> fryingTimers = new List<float>();
@@ -199,6 +202,40 @@ public class Kitchen : MonoBehaviour, IHasProgress
         currentState = newState;
         
         OnStateChanged?.Invoke(this, new OnStateChangedEventArgs { currentState = currentState });
+        
+        if (currentState == State.Frying || currentState == State.Fried)
+        {
+            foreach (GameObject particle in cookingParticleGameObject)
+            {
+                if (particle != null) particle.SetActive(false);
+            }
+            foreach (GameObject particle in burnedParticleGameObject)
+            {
+                if (particle != null) particle.SetActive(false);
+            }
+        }
+        else if (currentState == State.Burned)
+        {
+            foreach (GameObject particle in cookingParticleGameObject)
+            {
+                if (particle != null) particle.SetActive(false);
+            }
+            foreach (GameObject particle in burnedParticleGameObject)
+            {
+                if (particle != null) particle.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (GameObject particle in cookingParticleGameObject)
+            {
+                if (particle != null) particle.SetActive(false);
+            }
+            foreach (GameObject particle in burnedParticleGameObject)
+            {
+                if (particle != null) particle.SetActive(false);
+            }
+        }
     }
     
     public bool HasFood() => currentFoodItems.Exists(item => item != null);
