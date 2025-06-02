@@ -74,9 +74,13 @@ public class DispenserManager : MonoBehaviour
 
     private void SpawnCup(Dispenser dispenser)
     {
-        dispenser.currentCup = Instantiate(dispenser.orderItemSO.itemPrefab, dispenser.cupSpawnTransform.position, Quaternion.identity);
+        GameObject cupObj = Instantiate(dispenser.orderItemSO.itemPrefab, dispenser.cupSpawnTransform.position, Quaternion.identity);
+        dispenser.currentCup = cupObj;
         dispenser.isFilling = false;
         dispenser.fillAmount = 0f;
+
+        Cup cup = cupObj.GetComponent<Cup>();
+        cup.InitDispenserReference(this, System.Array.IndexOf(dispensers, dispenser));
     }
     
     public void TrySpawnCup(int index)
@@ -89,6 +93,16 @@ public class DispenserManager : MonoBehaviour
         {
             SpawnCup(dispenser);
             StartFilling(dispenser);
+        }
+    }
+    
+    public void OnCupGrabbed(int dispenserIndex)
+    {
+        if (dispenserIndex >= 0 && dispenserIndex < dispensers.Length)
+        {
+            dispensers[dispenserIndex].currentCup = null;
+            dispensers[dispenserIndex].isFilling = false;
+            dispensers[dispenserIndex].fillAmount = 0f;
         }
     }
 }
