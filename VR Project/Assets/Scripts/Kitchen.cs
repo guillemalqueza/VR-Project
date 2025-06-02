@@ -38,6 +38,32 @@ public class Kitchen : MonoBehaviour, IHasProgress
             burningTimers.Add(0f);
             foodStates.Add(State.Idle);
         }
+
+        if (cookingParticleGameObject != null)
+        {
+            for (int i = 0; i < cookingParticleGameObject.Length; i++)
+            {
+                if (cookingParticleGameObject[i] != null)
+                {
+                    cookingParticleGameObject[i].SetActive(true);
+                    var ps = cookingParticleGameObject[i].GetComponent<ParticleSystem>();
+                    if (ps != null) ps.Pause();
+                }
+            }
+        }
+
+        if (burnedParticleGameObject != null)
+        {
+            for (int i = 0; i < burnedParticleGameObject.Length; i++)
+            {
+                if (burnedParticleGameObject[i] != null)
+                {
+                    burnedParticleGameObject[i].SetActive(true);
+                    var ps = burnedParticleGameObject[i].GetComponent<ParticleSystem>();
+                    if (ps != null) ps.Pause();
+                }
+            }
+        }
     }
     
     private void Update()
@@ -202,38 +228,43 @@ public class Kitchen : MonoBehaviour, IHasProgress
         currentState = newState;
         
         OnStateChanged?.Invoke(this, new OnStateChangedEventArgs { currentState = currentState });
-        
-        if (currentState == State.Frying || currentState == State.Fried)
+
+        for (int i = 0; i < topPoints.Length; i++)
         {
-            foreach (GameObject particle in cookingParticleGameObject)
+            if (cookingParticleGameObject != null && i < cookingParticleGameObject.Length && cookingParticleGameObject[i] != null)
             {
-                if (particle != null) particle.SetActive(false);
+                var ps = cookingParticleGameObject[i].GetComponent<ParticleSystem>();
+                if (ps != null)
+                {
+                    if (foodStates[i] == State.Frying || foodStates[i] == State.Fried)
+                    {
+                        if (!ps.isPlaying)
+                            ps.Play();
+                    }
+                    else
+                    {
+                        if (ps.isPlaying)
+                            ps.Pause();
+                    }
+                }
             }
-            foreach (GameObject particle in burnedParticleGameObject)
+
+            if (burnedParticleGameObject != null && i < burnedParticleGameObject.Length && burnedParticleGameObject[i] != null)
             {
-                if (particle != null) particle.SetActive(false);
-            }
-        }
-        else if (currentState == State.Burned)
-        {
-            foreach (GameObject particle in cookingParticleGameObject)
-            {
-                if (particle != null) particle.SetActive(false);
-            }
-            foreach (GameObject particle in burnedParticleGameObject)
-            {
-                if (particle != null) particle.SetActive(true);
-            }
-        }
-        else
-        {
-            foreach (GameObject particle in cookingParticleGameObject)
-            {
-                if (particle != null) particle.SetActive(false);
-            }
-            foreach (GameObject particle in burnedParticleGameObject)
-            {
-                if (particle != null) particle.SetActive(false);
+                var ps = burnedParticleGameObject[i].GetComponent<ParticleSystem>();
+                if (ps != null)
+                {
+                    if (foodStates[i] == State.Burned)
+                    {
+                        if (!ps.isPlaying)
+                            ps.Play();
+                    }
+                    else
+                    {
+                        if (ps.isPlaying)
+                            ps.Pause();
+                    }
+                }
             }
         }
     }
