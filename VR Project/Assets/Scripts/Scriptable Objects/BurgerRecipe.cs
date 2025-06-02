@@ -10,6 +10,6 @@ public class BurgerRecipeSO : ScriptableObject
     private void OnValidate()
     {
         if (itemSOList.Count > 5)
-            itemSOList = itemSOList.GetRange(0, 5);
+            itemSOList = itemSOList.GetRange(0, 6);
     }
 }
