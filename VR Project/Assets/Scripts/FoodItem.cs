@@ -8,6 +8,7 @@ public class FoodItem : MonoBehaviour
     private XRGrabInteractable grabInteractable;
     private bool isBeingHeld = false;
     [SerializeField] private GameObject[] stateGameObjects;
+    private Kitchen.State currentState = Kitchen.State.Idle;
     
     private void Awake()
     {
@@ -46,6 +47,8 @@ public class FoodItem : MonoBehaviour
     
     public void ChangeState(Kitchen.State state)
     {
+        currentState = state;
+        
         if (stateGameObjects == null || stateGameObjects.Length < 3)
         {
             return;
@@ -100,4 +103,6 @@ public class FoodItem : MonoBehaviour
     public bool IsBeingHeld() => isBeingHeld;
     
     public bool IsInCookingProcess() => currentKitchen != null;
+    
+    public bool IsFried() => currentState == Kitchen.State.Fried;
 }
