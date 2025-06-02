@@ -299,6 +299,8 @@ public class Kitchen : MonoBehaviour, IHasProgress
         fryingTimers[index] = 0f;
         burningTimers[index] = 0f;
         foodStates[index] = State.Idle;
+
+        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs { progress = 0f, positionIndex = index  });
         
         UpdateOverallState();
     }
