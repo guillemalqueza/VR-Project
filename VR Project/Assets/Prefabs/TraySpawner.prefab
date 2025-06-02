@@ -61,5 +61,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   traySpawner: {fileID: 3365109681790195626}
   topPoint: {fileID: 3279612063162654353}
-  trayVisualPrefab: {fileID: 4817667571446826640, guid: 7af9c5975e4e2364dae4da5e68d2d1cc, type: 3}
+  trayVisualPrefab: {fileID: 1719838073556174582, guid: 6c6340c6dfce3574ab1a53abb7aef1f9, type: 3}
   trayOffsetY: 0.03
