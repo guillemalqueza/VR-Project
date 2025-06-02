@@ -49,6 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customerPrefabs:
   - {fileID: 7774602037076200132, guid: 781c57df75d55934eaa098353215bd43, type: 3}
+  - {fileID: 7774602037076200132, guid: 5ea97c8ac15ef8249863cb303d4212a6, type: 3}
+  - {fileID: 7774602037076200132, guid: 3fa551e74b7ea0141b2b5a89c3e67a41, type: 3}
+  - {fileID: 7774602037076200132, guid: 7f2b5a08be7dc704b8d15d508c1c9da1, type: 3}
   spawnPoint: {fileID: 2056549723451825667}
   orderPoint: {fileID: 2633030447161791401}
   exitPoint: {fileID: 7574527156663219776}

@@ -657,7 +657,7 @@ GameObject:
   - component: {fileID: 6957683727005609277}
   - component: {fileID: 2469077509394063939}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: NPC 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -788,6 +788,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6536058819320482789, guid: 44d8370ca2189914384d167afb7afad3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b33a0f0b3bf75d2438f2f6915c8a88d9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
