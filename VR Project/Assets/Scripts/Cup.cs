@@ -39,6 +39,9 @@ public class Cup : MonoBehaviour
     private void Start()
     {
         initialSize = liquidVisual.localScale.y;
+        
+        if (liquidVisual != null)
+            liquidVisual.gameObject.SetActive(false);
     }
 
     public void InitDispenserReference(DispenserManager manager, int index)
@@ -50,6 +53,9 @@ public class Cup : MonoBehaviour
     public void UpdateFill(float amount)
     {
         fillAmount = amount;
+
+        if (fillAmount > 0f && !liquidVisual.gameObject.activeSelf)
+            liquidVisual.gameObject.SetActive(true);
 
         Vector3 pos = liquidVisual.localPosition;
         pos.y = Mathf.Lerp(minFillAmount, maxFillAmount, fillAmount);

@@ -21,8 +21,22 @@ public class DispenserManager : MonoBehaviour
     [Header("Cup Settings")]
     [SerializeField] private float respawnDelay = 2f;
 
+    [Header("Fill Particle Effects")]
+    [SerializeField] private ParticleSystem[] fillParticles = new ParticleSystem[3];
+    [SerializeField] private float waitingTime = 0.2f;
+
     void Start()
     {
+        if (fillParticles != null)
+        {
+            for (int i = 0; i < fillParticles.Length; i++)
+            {
+                if (fillParticles[i] != null)
+                {
+                    fillParticles[i].Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                }
+            }
+        }
         /*foreach (Dispenser dispenser in dispensers)
         {
             SpawnCup(dispenser);
@@ -32,14 +46,23 @@ public class DispenserManager : MonoBehaviour
 
     void Update()
     {
-        foreach (Dispenser dispenser in dispensers)
+        for (int i = 0; i < dispensers.Length; i++)
         {
+            Dispenser dispenser = dispensers[i];
             if (dispenser.isFilling && dispenser.currentCup != null)
             {
                 dispenser.fillAmount += Time.deltaTime / dispenser.fillTime;
-                
+
+                if (fillParticles != null && i >= 0 && i < fillParticles.Length && fillParticles[i] != null)
+                {
+                    if (dispenser.fillAmount >= 0.95f && (fillParticles[i].isEmitting || fillParticles[i].isPlaying))
+                    {
+                        fillParticles[i].Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                    }
+                }
+
                 if (dispenser.fillAmount >= 1f)
-                    CompleteFill(dispenser);
+                    CompleteFill(dispenser, i);
 
                 UpdateCupFill(dispenser);
             }
@@ -48,16 +71,34 @@ public class DispenserManager : MonoBehaviour
 
     private void StartFilling(Dispenser dispenser)
     {
+        int index = System.Array.IndexOf(dispensers, dispenser);
         if (dispenser.currentCup != null && !dispenser.isFilling && dispenser.fillAmount < 1f)
         {
-            dispenser.isFilling = true;
+            if (fillParticles != null && index >= 0 && index < fillParticles.Length && fillParticles[index] != null)
+            {
+                if (!fillParticles[index].isPlaying)
+                    fillParticles[index].Play();
+            }
+
+            StartCoroutine(StartFillingDelayed(dispenser, waitingTime));
         }
     }
 
-    private void CompleteFill(Dispenser dispenser)
+    private IEnumerator StartFillingDelayed(Dispenser dispenser, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        dispenser.isFilling = true;
+    }
+
+    private void CompleteFill(Dispenser dispenser, int index)
     {
         dispenser.isFilling = false;
         dispenser.fillAmount = 1f;
+        if (fillParticles != null && index >= 0 && index < fillParticles.Length && fillParticles[index] != null)
+        {
+            if (fillParticles[index].isEmitting || fillParticles[index].isPlaying)
+                fillParticles[index].Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        }
     }
 
     private void UpdateCupFill(Dispenser dispenser)
