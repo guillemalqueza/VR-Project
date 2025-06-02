@@ -26,7 +26,6 @@ public class TraySpawnerVisual : MonoBehaviour
     {
         GameObject trayGameObject = trayVisualGameObjectList[trayVisualGameObjectList.Count - 1];
         trayVisualGameObjectList.Remove(trayGameObject);
-        Destroy(trayGameObject);
     }
 
     private void TraySpawner_OnTraySpawned(object sender, System.EventArgs e)
