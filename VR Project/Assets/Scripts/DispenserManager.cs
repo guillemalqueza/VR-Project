@@ -23,11 +23,11 @@ public class DispenserManager : MonoBehaviour
 
     void Start()
     {
-        foreach (Dispenser dispenser in dispensers)
+        /*foreach (Dispenser dispenser in dispensers)
         {
             SpawnCup(dispenser);
             StartFilling(dispenser);
-        }
+        }*/
     }
 
     void Update()
@@ -77,5 +77,18 @@ public class DispenserManager : MonoBehaviour
         dispenser.currentCup = Instantiate(dispenser.orderItemSO.itemPrefab, dispenser.cupSpawnTransform.position, Quaternion.identity);
         dispenser.isFilling = false;
         dispenser.fillAmount = 0f;
+    }
+    
+    public void TrySpawnCup(int index)
+    {
+        if (index < 0 || index >= dispensers.Length) return;
+
+        Dispenser dispenser = dispensers[index];
+
+        if (dispenser.currentCup == null)
+        {
+            SpawnCup(dispenser);
+            StartFilling(dispenser);
+        }
     }
 }
