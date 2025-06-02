@@ -7,7 +7,7 @@ public class TrayIngredientDetector : MonoBehaviour
     [SerializeField] private GameObject[] trayIngredientPrefabs;
     
     private bool isPositionedOnTable = false;
-    private bool[] ingredientAdded = new bool[5];
+    private bool[] ingredientAdded = new bool[8];
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -39,6 +39,18 @@ public class TrayIngredientDetector : MonoBehaviour
         else if (collision.gameObject.CompareTag("Tomato") && !ingredientAdded[4] && trayIngredientPrefabs[4] != null)
         {
             AddIngredientToTray(4, collision.gameObject, "Tomato");
+        }
+        else if (collision.gameObject.CompareTag("Fanta") && !ingredientAdded[5] && !ingredientAdded[6] && !ingredientAdded[7] && trayIngredientPrefabs[5] != null)
+        {
+            AddIngredientToTray(5, collision.gameObject, "Fanta");
+        }
+        else if (collision.gameObject.CompareTag("Cola") && !ingredientAdded[5] && !ingredientAdded[6] && !ingredientAdded[7] && trayIngredientPrefabs[6] != null)
+        {
+            AddIngredientToTray(6, collision.gameObject, "Cola");
+        }
+        else if (collision.gameObject.CompareTag("Beer") && !ingredientAdded[5] && !ingredientAdded[6] && !ingredientAdded[7] && trayIngredientPrefabs[7] != null)
+        {
+            AddIngredientToTray(7, collision.gameObject, "Beer");
         }
     }
 

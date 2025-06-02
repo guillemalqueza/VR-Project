@@ -12,6 +12,10 @@ TagManager:
   - Lettuce
   - Onion
   - Tomato
+  - Table
+  - Fanta
+  - Beer
+  - Cola
   layers:
   - Default
   - TransparentFX

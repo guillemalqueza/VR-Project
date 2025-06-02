@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2102177847543447789}
   m_Layer: 0
   m_Name: Liquid Visual
-  m_TagString: Untagged
+  m_TagString: Fanta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7546969208322522965}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Fanta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: -5557627766072942518}
   m_Layer: 0
   m_Name: CupFanta
-  m_TagString: Untagged
+  m_TagString: Fanta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
