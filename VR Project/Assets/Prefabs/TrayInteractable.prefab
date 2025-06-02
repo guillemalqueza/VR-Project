@@ -83,6 +83,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 7591217288428262667}
     m_Modifications:
     - target: {fileID: 1441205995407568008, guid: 837b28e8b8cd37c449f8a822de5c34ff, type: 3}
+      propertyPath: m_Name
+      value: Burger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441205995407568008, guid: 837b28e8b8cd37c449f8a822de5c34ff, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -165,6 +169,10 @@ PrefabInstance:
     - target: {fileID: 6749719440057161786, guid: 837b28e8b8cd37c449f8a822de5c34ff, type: 3}
       propertyPath: m_TagString
       value: Tomato
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381334274170044651, guid: 837b28e8b8cd37c449f8a822de5c34ff, type: 3}
+      propertyPath: m_Name
+      value: Bread
       objectReference: {fileID: 0}
     - target: {fileID: 7381334274170044651, guid: 837b28e8b8cd37c449f8a822de5c34ff, type: 3}
       propertyPath: m_IsActive

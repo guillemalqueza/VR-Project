@@ -7,6 +7,7 @@ public class TrayIngredientDetector : MonoBehaviour
     [SerializeField] private GameObject[] trayIngredientPrefabs;
     
     private bool isPositionedOnTable = false;
+    private bool[] ingredientAdded = new bool[5];
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -14,40 +15,39 @@ public class TrayIngredientDetector : MonoBehaviour
         {
             isPositionedOnTable = true;
             Debug.Log("Tray positioned on table");
+            return;
         }
 
-        if (isPositionedOnTable)
+        if (!isPositionedOnTable) return;
+
+        if (collision.gameObject.CompareTag("Lettuce") && !ingredientAdded[0] && trayIngredientPrefabs[0] != null)
         {
-            if (collision.gameObject.CompareTag("Lettuce"))
-            {
-                trayIngredientPrefabs[0].SetActive(true);
-                //Destroy(collision.gameObject);
-                Debug.Log("Lettuce added to tray and destroyed");
-            }
-            else if (collision.gameObject.CompareTag("Burger"))
-            {
-                trayIngredientPrefabs[1].SetActive(true);
-                //Destroy(collision.gameObject);
-                Debug.Log("Burger added to tray and destroyed");
-            }
-            else if (collision.gameObject.CompareTag("Bread"))
-            {
-                trayIngredientPrefabs[2].SetActive(true);
-                //Destroy(collision.gameObject);
-                Debug.Log("Bread added to tray and destroyed");
-            }
-            else if (collision.gameObject.CompareTag("Onion"))
-            {
-                trayIngredientPrefabs[3].SetActive(true);
-                //Destroy(collision.gameObject);
-                Debug.Log("Onion added to tray and destroyed");
-            }
-            else if (collision.gameObject.CompareTag("Tomato"))
-            {
-                trayIngredientPrefabs[4].SetActive(true);
-                //Destroy(collision.gameObject);
-                Debug.Log("Tomato added to tray and destroyed");
-            }
+            AddIngredientToTray(0, collision.gameObject, "Lettuce");
+        }
+        else if (collision.gameObject.CompareTag("Burger") && !ingredientAdded[1] && trayIngredientPrefabs[1] != null)
+        {
+            AddIngredientToTray(1, collision.gameObject, "Burger");
+        }
+        else if (collision.gameObject.CompareTag("Bread") && !ingredientAdded[2] && trayIngredientPrefabs[2] != null)
+        {
+            AddIngredientToTray(2, collision.gameObject, "Bread");
+        }
+        else if (collision.gameObject.CompareTag("Onion") && !ingredientAdded[3] && trayIngredientPrefabs[3] != null)
+        {
+            AddIngredientToTray(3, collision.gameObject, "Onion");
+        }
+        else if (collision.gameObject.CompareTag("Tomato") && !ingredientAdded[4] && trayIngredientPrefabs[4] != null)
+        {
+            AddIngredientToTray(4, collision.gameObject, "Tomato");
         }
     }
+
+    private void AddIngredientToTray(int index, GameObject ingredient, string ingredientName)
+    {
+        ingredientAdded[index] = true;
+        trayIngredientPrefabs[index].SetActive(true);
+        Destroy(ingredient);
+        Debug.Log($"{ingredientName} added to tray and destroyed");
+    }
+
 }
