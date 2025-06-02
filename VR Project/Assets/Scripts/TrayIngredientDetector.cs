@@ -27,7 +27,7 @@ public class TrayIngredientDetector : MonoBehaviour
         else if (collision.gameObject.CompareTag("Burger") && !ingredientAdded[1] && trayIngredientPrefabs[1] != null)
         {
             FoodItem foodItem = collision.gameObject.GetComponent<FoodItem>();
-            if (foodItem != null && IsBurgerFried(foodItem))
+            if (foodItem != null && IsItemFried(foodItem))
                 AddIngredientToTray(1, collision.gameObject, "Burger");
         }
         else if (collision.gameObject.CompareTag("Bread") && !ingredientAdded[2] && trayIngredientPrefabs[2] != null)
@@ -56,7 +56,9 @@ public class TrayIngredientDetector : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Potato") && !ingredientAdded[8] && trayIngredientPrefabs[8] != null)
         {
-            AddIngredientToTray(8, collision.gameObject, "Potato");
+            FoodItem foodItem = collision.gameObject.GetComponent<FoodItem>();
+            if (foodItem != null && IsItemFried(foodItem))
+                AddIngredientToTray(8, collision.gameObject, "Potato");
         }
         else
         {
@@ -72,7 +74,7 @@ public class TrayIngredientDetector : MonoBehaviour
         Debug.Log($"{ingredientName} added to tray and destroyed");
     }
 
-    private bool IsBurgerFried(FoodItem foodItem)
+    private bool IsItemFried(FoodItem foodItem)
     {
         return foodItem.IsFried();
     }
