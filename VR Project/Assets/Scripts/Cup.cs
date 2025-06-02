@@ -7,9 +7,16 @@ public class Cup : MonoBehaviour
     [SerializeField] private Transform liquidVisual;
     [SerializeField] private float minFillAmount = 0;
     [SerializeField] private float maxFillAmount = 0.065f;
+    [SerializeField] private float maxSize = 0.05f;
     
     private float fillAmount = 0f;
     private bool isFilled = false;
+    private float initialSize = 0f;
+
+    private void Start()
+    {
+        initialSize = liquidVisual.localScale.y;
+    }
 
     public void UpdateFill(float amount)
     {
@@ -18,6 +25,10 @@ public class Cup : MonoBehaviour
         Vector3 pos = liquidVisual.localPosition;
         pos.y = Mathf.Lerp(minFillAmount, maxFillAmount, fillAmount);
         liquidVisual.localPosition = pos;
+
+        var scale = liquidVisual.localScale;
+        scale.y = Mathf.Lerp(initialSize, maxSize, fillAmount);
+        liquidVisual.localScale = scale;
 
         if (fillAmount >= 1f && !isFilled)
         {
