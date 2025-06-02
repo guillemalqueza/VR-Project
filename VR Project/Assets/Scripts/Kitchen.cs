@@ -243,8 +243,8 @@ public class Kitchen : MonoBehaviour, IHasProgress
                     }
                     else
                     {
-                        if (ps.isPlaying)
-                            ps.Pause();
+                        if (ps.isEmitting || ps.isPlaying)
+                            ps.Stop(true, ParticleSystemStopBehavior.StopEmitting);
                     }
                 }
             }
@@ -261,8 +261,8 @@ public class Kitchen : MonoBehaviour, IHasProgress
                     }
                     else
                     {
-                        if (ps.isPlaying)
-                            ps.Pause();
+                        if (ps.isEmitting || ps.isPlaying)
+                            ps.Stop(true, ParticleSystemStopBehavior.StopEmitting);
                     }
                 }
             }
