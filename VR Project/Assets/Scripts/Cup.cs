@@ -11,6 +11,7 @@ public class Cup : MonoBehaviour
     [SerializeField] private float minFillAmount = 0;
     [SerializeField] private float maxFillAmount = 0.065f;
     [SerializeField] private float maxSize = 0.05f;
+    [SerializeField] private AudioSource fillingAudioSource;
     
     private float fillAmount = 0f;
     private bool isFilled = false;
@@ -20,6 +21,8 @@ public class Cup : MonoBehaviour
     private DispenserManager dispenserManager;
     private XRGrabInteractable grabInteractable;
     private Rigidbody rb;
+
+    private bool wasFilling = false;
 
     private void Awake()
     {
@@ -56,6 +59,19 @@ public class Cup : MonoBehaviour
         scale.y = Mathf.Lerp(initialSize, maxSize, fillAmount);
         liquidVisual.localScale = scale;
 
+        bool isCurrentlyFilling = fillAmount > 0f && fillAmount < 1f;
+        if (isCurrentlyFilling && !wasFilling)
+        {
+            if (!fillingAudioSource.isPlaying)
+                fillingAudioSource.Play();
+        }
+        else if (!isCurrentlyFilling && wasFilling)
+        {
+            if (fillingAudioSource.isPlaying)
+                fillingAudioSource.Stop();
+        }
+        wasFilling = isCurrentlyFilling;
+
         if (fillAmount >= 1f && !isFilled)
         {
             isFilled = true;
@@ -63,6 +79,9 @@ public class Cup : MonoBehaviour
             grabInteractable.enabled = true;
             rb.isKinematic = false;
             rb.useGravity = true;
+
+            if (fillingAudioSource.isPlaying)
+                fillingAudioSource.Stop();
         }
     }
 
