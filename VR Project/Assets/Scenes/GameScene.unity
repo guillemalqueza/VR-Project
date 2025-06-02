@@ -261,7 +261,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &259366118
 MeshCollider:
@@ -582,13 +582,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2800636782507566884, guid: 0d6afd1b97aa0514da3048e42593b92b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5263343429651067903, guid: 0d6afd1b97aa0514da3048e42593b92b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831886042467362998, guid: 0d6afd1b97aa0514da3048e42593b92b, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7494687011839037027, guid: 0d6afd1b97aa0514da3048e42593b92b, type: 3}
       propertyPath: m_Name
       value: Cocina
+      objectReference: {fileID: 0}
+    - target: {fileID: 7577986442228366783, guid: 0d6afd1b97aa0514da3048e42593b92b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7582862198576891671, guid: 0d6afd1b97aa0514da3048e42593b92b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1259,6 +1271,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.648
       objectReference: {fileID: 0}
+    - target: {fileID: 1801430948219586100, guid: 758d7f322964c0644bad363b1b37908f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3740961639891869543, guid: 758d7f322964c0644bad363b1b37908f, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.641
@@ -1266,6 +1282,10 @@ PrefabInstance:
     - target: {fileID: 5936574481554751651, guid: 758d7f322964c0644bad363b1b37908f, type: 3}
       propertyPath: m_Name
       value: Freidora
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152924408909186444, guid: 758d7f322964c0644bad363b1b37908f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6763959279244069412, guid: 758d7f322964c0644bad363b1b37908f, type: 3}
       propertyPath: m_Material
