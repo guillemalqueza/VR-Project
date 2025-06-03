@@ -64,4 +64,14 @@ public class Table : MonoBehaviour
 
         traySpawner.RemoveTray();
     }
+
+    public GameObject GetFirstTray()
+    {
+        foreach (var tray in currentTrays)
+        {
+            if (tray != null)
+                return tray;
+        }
+        return null;
+    }
 }

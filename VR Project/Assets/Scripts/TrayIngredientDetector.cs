@@ -78,4 +78,15 @@ public class TrayIngredientDetector : MonoBehaviour
     {
         return foodItem.IsFried();
     }
+
+    public List<int> GetAddedIngredientIndexes()
+    {
+        List<int> indexes = new List<int>();
+        for (int i = 0; i < ingredientAdded.Length; i++)
+        {
+            if (ingredientAdded[i])
+                indexes.Add(i);
+        }
+        return indexes;
+    }
 }

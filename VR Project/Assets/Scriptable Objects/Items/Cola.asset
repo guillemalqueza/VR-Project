@@ -16,3 +16,4 @@ MonoBehaviour:
   itemPrefab: {fileID: 9170688763677819794, guid: 704176a00356be84789335a0e51997c9, type: 3}
   itemType: 1
   itemOrder: 0
+  itemIndex: 6

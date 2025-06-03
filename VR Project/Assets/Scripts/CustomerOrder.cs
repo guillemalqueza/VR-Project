@@ -10,7 +10,8 @@ public class CustomerOrder : MonoBehaviour
     [Header("Recipes")]
     [SerializeField] private List<OrderRecipeSO> availableRecipes;
 
-    private OrderRecipeSO currentRecipe;
+    [HideInInspector]
+    public OrderRecipeSO currentRecipe;
 
     private void Awake()
     {

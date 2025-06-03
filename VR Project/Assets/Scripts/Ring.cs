@@ -4,12 +4,14 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class Ring : XRBaseInteractable
 {
-
     [SerializeField] private CheckOrders checkOrders;
+    [SerializeField] private AudioSource audioSource;
+
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
         base.OnSelectEntered(args);
-        
-        
+
+        checkOrders.CheckOrder();
+        audioSource.Play();
     }
 }

@@ -4,15 +4,77 @@ using UnityEngine;
 
 public class CheckOrders : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Table table;
+    [SerializeField] private NPCSpawner npcSpawner;
+
+    public void CheckOrder()
     {
-        
+        TrayIngredientDetector trayDetector = GetTrayOnTable();
+        CustomerOrder currentCustomerOrder = GetCurrentCustomerOrder();
+
+        List<int> trayIndexes = trayDetector.GetAddedIngredientIndexes();
+        List<int> recipeIndexes = GetRecipeIndexes(currentCustomerOrder);
+
+        bool match = CompareIndexes(trayIndexes, recipeIndexes);
+
+        if (match)
+            Debug.Log("Correct order!");
+        else
+            Debug.Log("Incorrect order.");
     }
 
-    // Update is called once per frame
-    void Update()
+    private TrayIngredientDetector GetTrayOnTable()
     {
-        
+        if (table == null) return null;
+        GameObject trayObj = table.GetFirstTray();
+        if (trayObj == null) return null;
+        return trayObj.GetComponent<TrayIngredientDetector>();
+    }
+
+    private CustomerOrder GetCurrentCustomerOrder()
+    {
+        if (npcSpawner == null) return null;
+        return npcSpawner.GetCurrentCustomerOrder();
+    }
+
+    private List<int> GetRecipeIndexes(CustomerOrder customerOrder)
+    {
+        List<int> indexes = new List<int>();
+        if (customerOrder.currentRecipe != null)
+        {
+            foreach (var item in customerOrder.currentRecipe.itemSOList)
+            {
+                indexes.Add(item.itemIndex);
+            }
+
+            if (customerOrder.currentRecipe.burgerRecipeSO != null)
+            {
+                foreach (var item in customerOrder.currentRecipe.burgerRecipeSO.itemSOList)
+                {
+                    indexes.Add(item.itemIndex);
+                }
+            }
+        }
+        return indexes;
+    }
+
+    private bool CompareIndexes(List<int> tray, List<int> recipe)
+    {
+        var recipeSet = new HashSet<int>(recipe);
+        var traySet = new HashSet<int>(tray);
+
+        foreach (int recipeIndex in recipeSet)
+        {
+            if (!traySet.Contains(recipeIndex))
+                return false;
+        }
+
+        foreach (int trayIndex in traySet)
+        {
+            if (!recipeSet.Contains(trayIndex))
+                return false;
+        }
+
+        return true;
     }
 }

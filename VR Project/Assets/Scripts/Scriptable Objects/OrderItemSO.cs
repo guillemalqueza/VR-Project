@@ -21,4 +21,7 @@ public class OrderItemSO : ScriptableObject
 
     [Tooltip("Item Order")]
     public int itemOrder;
+
+    [Tooltip("Item Index")]
+    public int itemIndex;
 }

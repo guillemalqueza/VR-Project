@@ -41,4 +41,10 @@ public class NPCSpawner : MonoBehaviour
         NPCMovement movement = currentCustomer.GetComponent<NPCMovement>();
         movement.MoveToAndDestroy(exitPoint.position);
     }
+
+    public CustomerOrder GetCurrentCustomerOrder()
+    {
+        if (currentCustomer == null) return null;
+        return currentCustomer.GetComponent<CustomerOrder>();
+    }
 }
