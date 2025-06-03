@@ -17,10 +17,22 @@ public class CheckOrders : MonoBehaviour
 
         bool match = CompareIndexes(trayIndexes, recipeIndexes);
 
+        Animator npcAnimator = null;
+        if (currentCustomerOrder != null)
+            npcAnimator = currentCustomerOrder.GetComponentInChildren<Animator>();
+
         if (match)
+        {
             Debug.Log("Correct order!");
+            if (npcAnimator != null)
+                npcAnimator.SetTrigger("Happy");
+        }
         else
+        {
             Debug.Log("Incorrect order.");
+            if (npcAnimator != null)
+                npcAnimator.SetTrigger("Angry");
+        }
     }
 
     private TrayIngredientDetector GetTrayOnTable()
