@@ -37,6 +37,8 @@ public class CheckOrders : MonoBehaviour
                 SendAndSpawn();
             }
             winAudioSource?.Play();
+            trayDetector.correctParticleSystem?.gameObject.SetActive(true);
+            trayDetector.correctParticleSystem?.Play();
         }
         else
         {
@@ -51,6 +53,8 @@ public class CheckOrders : MonoBehaviour
                 SendAndSpawn();
             }
             loseAudioSource?.Play();
+            trayDetector.incorrectParticleSystem?.gameObject.SetActive(true);
+            trayDetector.incorrectParticleSystem?.Play();
         }
     }
 

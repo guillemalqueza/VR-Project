@@ -5,6 +5,8 @@ using UnityEngine;
 public class TrayIngredientDetector : MonoBehaviour
 {
     [SerializeField] private GameObject[] trayIngredientPrefabs;
+    [SerializeField] public ParticleSystem correctParticleSystem;
+    [SerializeField] public ParticleSystem incorrectParticleSystem;
     
     private bool isPositionedOnTable = false;
     private bool[] ingredientAdded = new bool[9];
