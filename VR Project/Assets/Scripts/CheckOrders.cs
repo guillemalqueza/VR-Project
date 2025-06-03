@@ -6,6 +6,7 @@ public class CheckOrders : MonoBehaviour
 {
     [SerializeField] private Table table;
     [SerializeField] private NPCSpawner npcSpawner;
+    [SerializeField] private float waitTime = 1f;
 
     public void CheckOrder()
     {
@@ -25,13 +26,48 @@ public class CheckOrders : MonoBehaviour
         {
             Debug.Log("Correct order!");
             if (npcAnimator != null)
+            {
                 npcAnimator.SetTrigger("Happy");
+                StartCoroutine(WaitAndSendCustomer(npcAnimator, "Happy"));
+            }
+            else
+            {
+                SendAndSpawn();
+            }
         }
         else
         {
             Debug.Log("Incorrect order.");
             if (npcAnimator != null)
+            {
                 npcAnimator.SetTrigger("Angry");
+                StartCoroutine(WaitAndSendCustomer(npcAnimator, "Angry"));
+            }
+            else
+            {
+                SendAndSpawn();
+            }
+        }
+    }
+
+    private IEnumerator WaitAndSendCustomer(Animator animator, string triggerName)
+    {
+        AnimatorClipInfo[] clips = animator.GetCurrentAnimatorClipInfo(0);
+        if (clips.Length > 0)
+        {
+            waitTime = clips[0].clip.length;
+        }
+
+        yield return new WaitForSeconds(waitTime);
+        SendAndSpawn();
+    }
+
+    private void SendAndSpawn()
+    {
+        if (npcSpawner != null)
+        {
+            npcSpawner.SendCustomerToExit();
+            npcSpawner.SpawnCustomer();
         }
     }
 
