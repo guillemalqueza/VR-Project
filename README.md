@@ -13,19 +13,26 @@ The following core features are implemented and fully functional:
 - **Drink Dispensing**: Players can fill cups and serve a variety of beverages.
 - **Object Interaction**: Select, grab, and manipulate various kitchen tools and ingredients using VR hand controls.
 - **Cooking Mechanics**:
-  - **Burgers**: Grill patties, add toppings, and assemble the perfect burger.
+  - **Burgers**: Grill patties, add toppings, and assemble full burgers using a variety of ingredients like lettuce, cheese, tomatoes, and sauces.
   - **Fries**: Cook crispy french fries using the deep fryer.
-- **Order Management**: Follow customer requests and prepare exact orders.
+- **Order Management**: Follow customer requests and prepare increasingly complex orders.
 - **Serving Customers**: Deliver completed meals to customers and keep up with the demand.
+- **Customer Variety**: Interact with a diverse range of customer types, each with unique behaviors and preferences.
+- **Complete Game Loop**: A full gameplay cycle is implemented, including order generation, cooking, delivery, and scoring.
+- **Visual and Audio Feedback**:
+  - **VFX**: Visual effects enhance the cooking and serving experience.
+  - **Sound Design**: Immersive audio cues for cooking actions, customer feedback, and ambient truck life.
+- **Decorative Assets**: Visual polish with thematic decorative elements inside the truck to enrich the environment.
+- **Order Complexity**: Some customer requests involve multi-step preparations and precise assembly.
 
-These features represent the basic loop of gameplay and offer a fully playable experience that simulates the pressure and satisfaction of working in a fast food truck.
+These features represent the foundational gameplay loop and deliver a rich, immersive VR experience filled with pressure, creativity, and satisfaction.
 
 ## 👥 Team
 
-- [Guillem Alqueza Mayench]
-- [Sergio Fernandez Contreras]
-- [Miguel Iglesias Abarca]
-- [Lluc Cid Bernal]
-- [Carlos Gonzalez Subirón]
-- [Bernat Cifuentes]
-- [Rafael Esquius] 
+- Guillem Alqueza Mayench  
+- Sergio Fernandez Contreras  
+- Miguel Iglesias Abarca  
+- Lluc Cid Bernal  
+- Carlos Gonzalez Subirón  
+- Bernat Cifuentes  
+- Rafael Esquius
