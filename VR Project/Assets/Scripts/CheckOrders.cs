@@ -31,6 +31,7 @@ public class CheckOrders : MonoBehaviour
             {
                 npcAnimator.SetTrigger("Happy");
                 StartCoroutine(WaitAndSendCustomer(npcAnimator, "Happy"));
+                StartCoroutine(WaitAndDestroyTray(trayDetector));
             }
             else
             {
@@ -68,6 +69,12 @@ public class CheckOrders : MonoBehaviour
 
         yield return new WaitForSeconds(waitTime);
         SendAndSpawn();
+    }
+
+    private IEnumerator WaitAndDestroyTray(TrayIngredientDetector trayDetector)
+    {
+        yield return new WaitForSeconds(waitTime);
+        Destroy(trayDetector.gameObject);
     }
 
     private void SendAndSpawn()
