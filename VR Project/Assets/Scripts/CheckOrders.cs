@@ -48,6 +48,7 @@ public class CheckOrders : MonoBehaviour
             {
                 npcAnimator.SetTrigger("Angry");
                 StartCoroutine(WaitAndSendCustomer(npcAnimator, "Angry"));
+                StartCoroutine(WaitAndDestroyTray(trayDetector));
             }
             else
             {
