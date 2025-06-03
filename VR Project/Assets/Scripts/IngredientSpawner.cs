@@ -13,6 +13,9 @@ public class IngredientSpawner : XRBaseInteractable
     [SerializeField] private float spawnForce = 0f;
     [SerializeField] private bool allowRayInteractors = true;
     [SerializeField] private bool acceptAllInteractors = true;
+    [SerializeField] private float spawnCooldown = 0.5f;
+    
+    private float lastSpawnTime = -Mathf.Infinity;
     
     protected override void OnEnable()
     {
@@ -28,6 +31,11 @@ public class IngredientSpawner : XRBaseInteractable
     
     private void SpawnIngredient(SelectEnterEventArgs args)
     {
+        if (Time.time - lastSpawnTime < spawnCooldown)
+            return;
+
+        lastSpawnTime = Time.time;
+
         if (ingredientSO == null)
         {
             Debug.LogError("IngredientSO not assigned to the spawner!", this);
