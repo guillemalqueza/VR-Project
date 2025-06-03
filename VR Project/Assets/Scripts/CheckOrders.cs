@@ -7,6 +7,8 @@ public class CheckOrders : MonoBehaviour
     [SerializeField] private Table table;
     [SerializeField] private NPCSpawner npcSpawner;
     [SerializeField] private float waitTime = 1f;
+    [SerializeField] private AudioSource winAudioSource;
+    [SerializeField] private AudioSource loseAudioSource;
 
     public void CheckOrder()
     {
@@ -34,6 +36,7 @@ public class CheckOrders : MonoBehaviour
             {
                 SendAndSpawn();
             }
+            winAudioSource?.Play();
         }
         else
         {
@@ -47,6 +50,7 @@ public class CheckOrders : MonoBehaviour
             {
                 SendAndSpawn();
             }
+            loseAudioSource?.Play();
         }
     }
 
